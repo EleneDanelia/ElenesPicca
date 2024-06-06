@@ -8,7 +8,7 @@ namespace RazorPagesTestAppMT.Data.Models
     {
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<PizzaOrder> PizzaOrders { get; set; }
+        public DbSet<BurgerOrder> BurgerOrders { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace RazorPagesTestAppMT.Pages
     [BindProperties(SupportsGet = true)]
     public class CheckoutModel : PageModel
     {
-        public string PizzaName { get; set; }
-        public float PizzaPrice { get; set; }
+        public string BurgerName { get; set; }
+        public float BurgerPrice { get; set; }
         public string ImageTitle { get; set; }
 
         private readonly ApplicationDbContext _context;
@@ -21,9 +21,9 @@ namespace RazorPagesTestAppMT.Pages
 
         public void OnGet()
         {
-            if (string.IsNullOrWhiteSpace(PizzaName))
+            if (string.IsNullOrWhiteSpace(BurgerName))
             {
-                PizzaName = "Custom";
+                BurgerName = "Custom";
             }
 
             if (string.IsNullOrWhiteSpace(ImageTitle))
@@ -31,11 +31,11 @@ namespace RazorPagesTestAppMT.Pages
                 ImageTitle = "Create";
             }
 
-            PizzaOrder pizzaOrder = new PizzaOrder();
-            pizzaOrder.PizzaName = PizzaName;
-            pizzaOrder.PizzaPrice = PizzaPrice;
+            BurgerOrder BurgerOrder = new BurgerOrder();
+            BurgerOrder.BurgerName = BurgerName;
+            BurgerOrder.BurgerPrice = BurgerPrice;
 
-            _context.PizzaOrders.Add(pizzaOrder);
+            _context.BurgerOrders.Add(BurgerOrder);
             _context.SaveChanges();
         }
     }

@@ -18,10 +18,10 @@ namespace RazorPagesTestAppMT.Pages
         public int OrderId { get; set; }
 
         [BindProperty]
-        public string NewPizzaName { get; set; }
+        public string NewBurgerName { get; set; }
 
         [BindProperty]
-        public float NewPizzaPrice { get; set; }
+        public float NewBurgerPrice { get; set; }
 
         [BindProperty]
         public List<string> SelectedIngredients { get; set; }
@@ -30,14 +30,14 @@ namespace RazorPagesTestAppMT.Pages
 
         public IActionResult OnGet()
         {
-            var order = _db.PizzaOrders.Find(OrderId);
+            var order = _db.BurgerOrders.Find(OrderId);
             if (order == null)
             {
                 return RedirectToPage("/NotFoundPage");
             }
 
-            NewPizzaName = order.PizzaName;
-            NewPizzaPrice = (float)order.PizzaPrice;
+            NewBurgerName = order.BurgerName;
+            NewBurgerPrice = (float)order.BurgerPrice;
             SelectedIngredients = AllIngredients.Where(ingredient => IsIngredientSelected(order, ingredient)).ToList();
 
             return Page();
@@ -45,17 +45,17 @@ namespace RazorPagesTestAppMT.Pages
 
         public IActionResult OnPost()
         {
-            var order = _db.PizzaOrders.Find(OrderId);
+            var order = _db.BurgerOrders.Find(OrderId);
             if (order == null)
             {
                 return RedirectToPage("/NotFoundPage");
             }
 
-            order.PizzaName = NewPizzaName;
+            order.BurgerName = NewBurgerName;
 
-            NewPizzaPrice = CalculatePizzaPrice();
+            NewBurgerPrice = CalculateBurgerPrice();
 
-            order.PizzaPrice = NewPizzaPrice;
+            order.BurgerPrice = NewBurgerPrice;
 
             foreach (var ingredient in AllIngredients)
             {
@@ -66,38 +66,38 @@ namespace RazorPagesTestAppMT.Pages
 
             return RedirectToPage("/Order");
         }
-        private float CalculatePizzaPrice()
+        private float CalculateBurgerPrice()
         {
-            float pizzaPrice = 0;
+            float burgerPrice = 0;
 
 
             if (SelectedIngredients.Contains("Tomato Sauce"))
-                pizzaPrice += 1;
+                burgerPrice += 1;
             if (SelectedIngredients.Contains("Cheese"))
-                pizzaPrice += 2;
+                burgerPrice += 2;
             if (SelectedIngredients.Contains("Pepperoni"))
-                pizzaPrice += 2;
+                burgerPrice += 2;
             if (SelectedIngredients.Contains("Mushroom"))
-                pizzaPrice += 1;
+                burgerPrice += 1;
             if (SelectedIngredients.Contains("Tuna"))
-                pizzaPrice += 1;
+                burgerPrice += 1;
             if (SelectedIngredients.Contains("Ham"))
-                pizzaPrice += 4;
+                burgerPrice += 4;
             if (SelectedIngredients.Contains("Beef"))
-                pizzaPrice += 3;
+                burgerPrice += 3;
 
-            return pizzaPrice;
+            return burgerPrice;
         }
 
 
-        private bool IsIngredientSelected(PizzaOrder order, string ingredient)
+        private bool IsIngredientSelected(BurgerOrder order, string ingredient)
         {
-            return (bool)typeof(PizzaOrder).GetProperty(ingredient.Replace(" ", "")).GetValue(order);
+            return (bool)typeof(BurgerOrder).GetProperty(ingredient.Replace(" ", "")).GetValue(order);
         }
 
-        private void SetIngredientValue(PizzaOrder order, string ingredient, bool value)
+        private void SetIngredientValue(BurgerOrder order, string ingredient, bool value)
         {
-            typeof(PizzaOrder).GetProperty(ingredient.Replace(" ", "")).SetValue(order, value);
+            typeof(BurgerOrder).GetProperty(ingredient.Replace(" ", "")).SetValue(order, value);
         }
     }
 }

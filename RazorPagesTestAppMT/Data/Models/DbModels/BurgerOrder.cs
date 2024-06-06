@@ -1,10 +1,10 @@
 ﻿namespace RazorPagesTestAppMT.Data.Models.DbModels
 {
-    public class PizzaOrder
+    public class BurgerOrder
     {
         public int Id { get; set; }
-        public string PizzaName { get; set; }
-        public double PizzaPrice { get; set; }
+        public string BurgerName { get; set; }
+        public double BurgerPrice { get; set; }
         public bool TomatoSauce { get; set; }
         public bool Cheese { get; set; }
         public bool Pepperoni { get; set; }
@@ -14,3 +14,4 @@
         public bool Beef { get; set; }
     }
 }
+

@@ -4,29 +4,29 @@ using RazorPagesTestAppMT.Data.Models;
 
 namespace RazorPagesTestAppMT.Pages
 {
-    public class CustomPizzaModel : PageModel
+    public class CustomBurgerModel : PageModel
     {
         [BindProperty]
-        public PizzasModel Pizza { get; set; }
-        public float PizzaPrice { get; set; }
+        public Data.Models.BurgerModel Burger { get; set; }
+        public float BurgerPrice { get; set; }
         public void OnGet()
         {
         }
 
         public IActionResult OnPost()
         {
-            PizzaPrice = Pizza.BasePrice;
+            BurgerPrice = Burger.BasePrice;
 
-            if (Pizza.TomatoSauce) PizzaPrice += 1;
-            if (Pizza.Cheese) PizzaPrice += 1;
-            if (Pizza.Peperoni) PizzaPrice += 1;
-            if (Pizza.Mushroom) PizzaPrice += 1;
-            if (Pizza.Tuna) PizzaPrice += 1;
-            if (Pizza.Pineapple) PizzaPrice += 10;
-            if (Pizza.Ham) PizzaPrice += 1;
-            if (Pizza.Beef) PizzaPrice += 1;
+            if (Burger.TomatoSauce) BurgerPrice += 1;
+            if (Burger.Cheese) BurgerPrice += 1;
+            if (Burger.Peperoni) BurgerPrice += 1;
+            if (Burger.Mushroom) BurgerPrice += 1;
+            if (Burger.Tuna) BurgerPrice += 1;
+            if (Burger.Pineapple) BurgerPrice += 10;
+            if (Burger.Ham) BurgerPrice += 1;
+            if (Burger.Beef) BurgerPrice += 1;
 
-            return RedirectToPage("Checkout", new { Pizza.PizzaName, PizzaPrice });
+            return RedirectToPage("Checkout", new { Burger.BurgerName, BurgerPrice });
         }
     }
 }

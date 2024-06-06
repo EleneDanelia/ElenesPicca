@@ -2,11 +2,11 @@
 
 namespace RazorPagesTestAppMT.Data.Models
 {
-    public class PizzaOrderViewModel
+    public class BurgerOrderViewModel
     {
         public int Id { get; set; }
-        public string PizzaName { get; set; }
-        public float PizzaPrice { get; set; }
+        public string BurgerName { get; set; }
+        public float BurgerPrice { get; set; }
         public StringBuilder Ingredients { get; set; }
     }
 }

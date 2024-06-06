@@ -4,25 +4,25 @@ using RazorPagesTestAppMT.Data.Models;
 
 namespace RazorPagesTestAppMT.Pages
 {
-    public class PizzaModel : PageModel
+    public class BurgerModel : PageModel
     {
-        public List<PizzasModel> fakePizzaDB = new List<PizzasModel>()
+        public List<Data.Models.BurgerModel> fakeBurgerDB = new List<Data.Models.BurgerModel>()
         {
-            new PizzasModel(){
+            new Data.Models.BurgerModel(){
                 ImageTitle="Margerita",
-                PizzaName="Margerita",
+                BurgerName="Margerita",
                 BasePrice=2,
                 TomatoSauce=true,
                 Cheese=true,
                 FinalPrice=4},
-            new PizzasModel(){ImageTitle="Bolognese", PizzaName="Bolognese", BasePrice=2, TomatoSauce=true, Cheese=true, Beef=true, FinalPrice=5},
-            new PizzasModel(){ImageTitle="Hawaiian", PizzaName="Hawaiian", BasePrice=2, TomatoSauce=true, Cheese=true, Ham=true, Pineapple=true, FinalPrice=15},
-            new PizzasModel(){ImageTitle="Carbonara", PizzaName="Carbonara", BasePrice=2, TomatoSauce=true, Cheese=true, Ham=true, Mushroom=true, FinalPrice=6},
-            new PizzasModel(){ImageTitle="MeatFeast", PizzaName="MeatFeast", BasePrice=2, TomatoSauce=true, Cheese=true, Ham=true, Beef=true, FinalPrice=6},
-            new PizzasModel(){ImageTitle="Mushroom", PizzaName="Mushroom", BasePrice=2, TomatoSauce=true, Cheese=true, Mushroom=true, FinalPrice=5},
-            new PizzasModel(){ImageTitle="Pepperoni", PizzaName="Pepperoni", BasePrice=2, TomatoSauce=true, Cheese=true, Peperoni=true, FinalPrice=5},
-            new PizzasModel(){ImageTitle="Seafood", PizzaName="Seafood", BasePrice=2, TomatoSauce=true, Cheese=true, Tuna=true, FinalPrice=5},
-            new PizzasModel(){ImageTitle="Vegetarian", PizzaName="Vegetarian", BasePrice=2, TomatoSauce=true, Cheese=true, Mushroom=true, Pineapple=true, FinalPrice=12},
+            new Data.Models.BurgerModel(){ ImageTitle="Bolognese", BurgerName="Bolognese", BasePrice=2, TomatoSauce=true, Cheese=true, Beef=true, FinalPrice=5},
+            new Data.Models.BurgerModel(){ ImageTitle="Hawaiian", BurgerName="Hawaiian", BasePrice=2, TomatoSauce=true, Cheese=true, Ham=true, Pineapple=true, FinalPrice=15},
+            new Data.Models.BurgerModel(){ ImageTitle="Carbonara", BurgerName="Carbonara", BasePrice=2, TomatoSauce=true, Cheese=true, Ham=true, Mushroom=true, FinalPrice=6},
+            new Data.Models.BurgerModel(){ ImageTitle="MeatFeast", BurgerName="MeatFeast", BasePrice=2, TomatoSauce=true, Cheese=true, Ham=true, Beef=true, FinalPrice=6},
+            new Data.Models.BurgerModel(){ ImageTitle="Mushroom", BurgerName="Mushroom", BasePrice=2, TomatoSauce=true, Cheese=true, Mushroom=true, FinalPrice=5},
+            new Data.Models.BurgerModel(){ ImageTitle="Pepperoni", BurgerName="Pepperoni", BasePrice=2, TomatoSauce=true, Cheese=true, Peperoni=true, FinalPrice=5},
+            new Data.Models.BurgerModel(){ ImageTitle="Seafood", BurgerName="Seafood", BasePrice=2, TomatoSauce=true, Cheese=true, Tuna=true, FinalPrice=5},
+            new Data.Models.BurgerModel(){ ImageTitle="Vegetarian", BurgerName="Vegetarian", BasePrice=2, TomatoSauce=true, Cheese=true, Mushroom=true, Pineapple=true, FinalPrice=12},
 
         };
         public void OnGet()

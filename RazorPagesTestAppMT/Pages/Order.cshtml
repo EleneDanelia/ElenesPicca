@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Pizza Orders</title>
+    <title>Burger Orders</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,9 +120,9 @@
         </form>
     </div>
 
-    <h1>Pizza Orders</h1>
+    <h1>Burger Orders</h1>
 
-    @if (ViewData["FilteredPizzaOrders"] != null)
+    @if (ViewData["FilteredBurgerOrders"] != null)
     {
         <table id="ordersTable">
             <thead>
@@ -135,12 +135,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var orderViewModel in ViewData["FilteredPizzaOrders"] as List<RazorPagesTestAppMT.Data.Models.PizzaOrderViewModel>)
+                @foreach (var orderViewModel in ViewData["FilteredBurgerOrders"] as List<RazorPagesTestAppMT.Data.Models.BurgerOrderViewModel>)
                 {
                     <tr>
                         <td>@orderViewModel.Id</td>
-                        <td>@orderViewModel.PizzaName</td>
-                        <td>$@orderViewModel.PizzaPrice</td>
+                        <td>@orderViewModel.BurgerName</td>
+                        <td>$@orderViewModel.BurgerPrice</td>
                         <td>@orderViewModel.Ingredients.ToString()</td>
                         <td>
                             <div style="display: flex; align-items: center;">
@@ -162,7 +162,7 @@
     }
     else
     {
-        <p>No pizza orders found.</p>
+        <p>No burger orders found.</p>
     }
 </body>
 </html>

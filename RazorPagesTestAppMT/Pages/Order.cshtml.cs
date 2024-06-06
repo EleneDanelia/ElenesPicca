@@ -8,9 +8,11 @@ namespace RazorPagesTestAppMT.Pages
 {
     public class OrderModel : PageModel
     {
-        public List<PizzaOrder> PizzaOrders { get; set; }
-        public List<PizzaOrderViewModel> FilterePizzaOrders { get; set; }
+        public List<BurgerOrder> BurgerOrders { get; set; }
+        public List<BurgerOrderViewModel> FiltereBurgerOrders { get; set; }
         private readonly ApplicationDbContext _db;
+        private readonly IEnumerable<object> burgerOrders;
+        private List<BurgerOrderViewModel> burgerOrderViewModels;
 
         public OrderModel(ApplicationDbContext db)
         {
@@ -19,40 +21,46 @@ namespace RazorPagesTestAppMT.Pages
 
         public IActionResult OnGet()
         {
-            PizzaOrders = _db.PizzaOrders.ToList();
+            BurgerOrders = _db.BurgerOrders.ToList();
 
-            FilterePizzaOrders = GetPizzaOrderViewModel(PizzaOrders);
+            FiltereBurgerOrders = GetBurgerOrderViewModel(BurgerOrders);
 
-            ViewData["FilteredPizzaOrders"] = FilterePizzaOrders;
+            ViewData["FilteredBurgerOrders"] = FiltereBurgerOrders;
             return Page();
 
         }
 
+        private List<BurgerOrderViewModel> GetBurgerOrderViewModel(List<BurgerOrder> burgerOrders)
+        {
+            throw new NotImplementedException();
+        }
+
         public IActionResult OnPostDelete(int orderId)
         {
-            var orderToDelete = _db.PizzaOrders.FirstOrDefault(x => x.Id == orderId);
+            var orderToDelete = _db.BurgerOrders.FirstOrDefault(x => x.Id == orderId);
             if (orderToDelete is null)
                 return RedirectToPage("/NotFountPage");
 
-            _db.PizzaOrders.Remove(orderToDelete);
+            _db.BurgerOrders.Remove(orderToDelete);
             _db.SaveChanges();
 
             return RedirectToPage("Order");
         }
 
-        public List<PizzaOrderViewModel> GetPizzaOrderViewModel(List<PizzaOrder> pizzaOrders)
+
+        public List<BurgerOrderViewModel> GetBurgerOrderViewModel(List<BurgerOrder> burgerOrders)
         {
-            var pizzaOrderViewModels = new List<PizzaOrderViewModel>();
+            var burgerOrderViewModels = new List<BurgerOrderViewModel>();
 
-            var ingredientProperties = typeof(PizzaOrder).GetProperties().Where(p => p.PropertyType == typeof(bool));
+            var ingredientProperties = typeof(BurgerOrder).GetProperties().Where(p => p.PropertyType == typeof(bool));
 
-            foreach (var order in pizzaOrders)
+            foreach (var order in burgerOrders)
             {
-                var pizzaModel = new PizzaOrderViewModel()
+                var burgerModel = new BurgerOrderViewModel()
                 {
                     Id = order.Id,
-                    PizzaPrice = (float)order.PizzaPrice,
-                    PizzaName = order.PizzaName,
+                    BurgerPrice = (float)order.BurgerPrice,
+                    BurgerName = order.BurgerName,
                     Ingredients = new StringBuilder()
                 };
 
@@ -61,17 +69,17 @@ namespace RazorPagesTestAppMT.Pages
                     var propValue = prop.GetValue(order);
                     if (propValue != null && (bool)propValue)
                     {
-                        pizzaModel.Ingredients.Append($"{prop.Name}, ");
+                        burgerModel.Ingredients.Append($"{prop.Name}, ");
                     }
                 }
-                if (pizzaModel.Ingredients.Length != 0)
+                if (burgerModel.Ingredients.Length != 0)
                 {
-                    pizzaModel.Ingredients.ToString().TrimEnd();
+                    burgerModel.Ingredients.ToString().TrimEnd();
                 }
-                pizzaOrderViewModels.Add(pizzaModel);
+                burgerOrderViewModels.Add(burgerModel);
             }
 
-            return pizzaOrderViewModels;
+            return burgerOrderViewModels;
         }
 
     }
