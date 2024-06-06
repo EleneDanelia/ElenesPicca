@@ -19,10 +19,7 @@ namespace RazorPagesTestAppMT.Pages
 
             if (Burger.TomatoSauce) BurgerPrice += 1;
             if (Burger.Cheese) BurgerPrice += 1;
-            if (Burger.Peperoni) BurgerPrice += 1;
             if (Burger.Mushroom) BurgerPrice += 1;
-            if (Burger.Tuna) BurgerPrice += 1;
-            if (Burger.Pineapple) BurgerPrice += 10;
             if (Burger.Ham) BurgerPrice += 1;
             if (Burger.Beef) BurgerPrice += 1;
 

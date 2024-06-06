@@ -46,3 +46,16 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.gamburgerphoto {
+    display: flex;
+    gap: 1rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.photos img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}

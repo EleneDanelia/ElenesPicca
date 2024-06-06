@@ -226,7 +226,7 @@ namespace RazorPagesTestAppMT.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RazorPagesTestAppMT.Data.Models.DbModels.PizzaOrder", b =>
+            modelBuilder.Entity("RazorPagesTestAppMT.Data.Models.DbModels.BurgerOrder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -237,6 +237,13 @@ namespace RazorPagesTestAppMT.Migrations
                     b.Property<bool>("Beef")
                         .HasColumnType("bit");
 
+                    b.Property<string>("BurgerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("BurgerPrice")
+                        .HasColumnType("float");
+
                     b.Property<bool>("Cheese")
                         .HasColumnType("bit");
 
@@ -246,25 +253,12 @@ namespace RazorPagesTestAppMT.Migrations
                     b.Property<bool>("Mushroom")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Pepperoni")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PizzaName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PizzaPrice")
-                        .HasColumnType("float");
-
                     b.Property<bool>("TomatoSauce")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Tuna")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PizzaOrders");
+                    b.ToTable("BurgerOrders");
                 });
 
             modelBuilder.Entity("RazorPagesTestAppMT.Data.Models.DbModels.ApplicationUser", b =>

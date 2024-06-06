@@ -75,12 +75,10 @@ namespace RazorPagesTestAppMT.Pages
                 burgerPrice += 1;
             if (SelectedIngredients.Contains("Cheese"))
                 burgerPrice += 2;
-            if (SelectedIngredients.Contains("Pepperoni"))
-                burgerPrice += 2;
+          
             if (SelectedIngredients.Contains("Mushroom"))
                 burgerPrice += 1;
-            if (SelectedIngredients.Contains("Tuna"))
-                burgerPrice += 1;
+           
             if (SelectedIngredients.Contains("Ham"))
                 burgerPrice += 4;
             if (SelectedIngredients.Contains("Beef"))

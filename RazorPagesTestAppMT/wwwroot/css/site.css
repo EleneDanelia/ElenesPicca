@@ -24,6 +24,8 @@ body {
 .mainImage {
     border-radius: 20px;
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.3);
+    height:200px;
+    width:200px;
     margin: 40px
 }
 
@@ -31,3 +33,17 @@ body {
     text-align:right;
     color: grey;
 }
+.photos img {
+    display: flex;
+    gap: 1rem;
+    height: 200px;
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+    .photos img {
+        height:200px;
+        width:200px;
+        object-fit:cover;
+    }
+

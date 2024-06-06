@@ -30,11 +30,6 @@ namespace RazorPagesTestAppMT.Pages
 
         }
 
-        private List<BurgerOrderViewModel> GetBurgerOrderViewModel(List<BurgerOrder> burgerOrders)
-        {
-            throw new NotImplementedException();
-        }
-
         public IActionResult OnPostDelete(int orderId)
         {
             var orderToDelete = _db.BurgerOrders.FirstOrDefault(x => x.Id == orderId);

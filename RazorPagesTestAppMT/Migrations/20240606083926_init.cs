@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RazorPagesTestAppMT.Migrations
 {
-    public partial class AddIdentityUserToDb : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +49,25 @@ namespace RazorPagesTestAppMT.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BurgerOrders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BurgerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BurgerPrice = table.Column<double>(type: "float", nullable: false),
+                    TomatoSauce = table.Column<bool>(type: "bit", nullable: false),
+                    Cheese = table.Column<bool>(type: "bit", nullable: false),
+                    Mushroom = table.Column<bool>(type: "bit", nullable: false),
+                    Ham = table.Column<bool>(type: "bit", nullable: false),
+                    Beef = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BurgerOrders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +232,9 @@ namespace RazorPagesTestAppMT.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "BurgerOrders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
